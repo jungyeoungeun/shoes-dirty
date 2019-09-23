@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>흙탕물에서 신발을 건져 주세요</title>
+</head>
+<style>
+	 
+		div{width:300px;
+			height:230px;
+			margin:10px;
+			padding:10px;
+			float:left;}
+		#dirty{width:600px;height:600px; padding-left:150px;}
+		#b1{width:300px;height:300px;padding-top: 50px;}
+
+</style>
+</head>
+<body>
+	<h1>흙탕물에서 신발을 건져 주세요</h1>
+	<p>신발을 구해주세요</p>
+	<div>
+		<img src="dirtywater2.png" id=dirty>
+	</div>
+	<div ondrop="drop(event)" ondragover="dragEnter(event)">
+	<img id="b1" width="200" height="310" src="shoes2.png" ddraggable="true" ondragstart="drag(event)">
+</div>
+<div ondrop="drop(event)" ondragover="dragEnter(event)"></div>
+
+<script type="text/javascript">
+
+	function dragEnter(ev) {
+		ev.preventDefault();
+	}
+	function drag(ev){
+		ev.dataTransfer.setData("text",ev.target.id);
+	}
+	function drop(ev){
+		ev.preventDefault();
+		var data = ev.dataTransfer.getData("text");
+		ev.target.appendChild(document.getElementById(data));
+
+	}
+		
+	</script>
+</body>
+</html>
